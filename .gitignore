@@ -3,7 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-/mlruns
 
 # C extensions
 *.so
@@ -174,3 +173,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Miscellaneous
+/mlruns
+MLOps Course Assignment.docx
