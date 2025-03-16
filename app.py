@@ -7,7 +7,7 @@ import pandas as pd
 app = FastAPI()
 
 # Load best model from MLflow
-mlflow_uri = "runs:/8b16589f563d4f9fb92ff430d73fc05c/RandomForest"
+mlflow_uri = "runs:/d615379bec8a469c963ef27e7e729bc7/RandomForest"
 model = mlflow.pyfunc.load_model(mlflow_uri)
 
 
