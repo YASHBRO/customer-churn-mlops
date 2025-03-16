@@ -27,7 +27,7 @@ Tariff_Plan = st.number_input("Tariff Plan", min_value=0, step=1)
 Status = st.number_input("Status", min_value=0, step=1)
 Age = st.number_input("Age", min_value=18, step=1)
 Customer_Value = st.number_input(
-    "Customer Value", min_value=0.0, max_value=1.0, step=0.01
+    "Customer Value", min_value=0.0, max_value=5000.0, step=0.01
 )
 
 # Submit button
