@@ -37,6 +37,7 @@ def root():
 @app.post("/predict")
 def predict_churn(request: ChurnRequest):
     # Convert request data to DataFrame
+    print("=====REQUEST======", request)
     data = pd.DataFrame([request.model_dump()])
 
     # Make prediction
