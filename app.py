@@ -7,8 +7,9 @@ import pandas as pd
 app = FastAPI()
 
 # Load best model from MLflow
-mlflow_uri = "runs:/d4851615d991408591aabad53084472f/RandomForest"
+mlflow_uri = "runs:/8b16589f563d4f9fb92ff430d73fc05c/RandomForest"
 model = mlflow.pyfunc.load_model(mlflow_uri)
+
 
 # Define request schema
 class ChurnRequest(BaseModel):
@@ -26,17 +27,24 @@ class ChurnRequest(BaseModel):
     Age: int
     Customer_Value: float
 
+
 # Define API endpoint
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
+
+
 @app.post("/predict")
 def predict_churn(request: ChurnRequest):
     # Convert request data to DataFrame
-    data = pd.DataFrame([request.dict()])
+    data = pd.DataFrame([request.model_dump()])
 
     # Make prediction
     prediction = model.predict(data)
 
     # Return result
     return {"churn_prediction": int(prediction[0])}
+
 
 # To run, execute this in terminal:
 # uvicorn app:app --host 0.0.0.0 --port 8000
